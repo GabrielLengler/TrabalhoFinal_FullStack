@@ -1,0 +1,29 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   ESTRUTURA DA PÁGINA
+=========================== */
+
+html,
+body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+
+    background-color: #F5E9D0;
+}
+
+main{
+    flex: 1;
+}

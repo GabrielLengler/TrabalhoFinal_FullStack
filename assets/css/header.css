@@ -1,0 +1,42 @@
+/* ===========================
+   HEADER
+=========================== */
+
+header{
+    width: 100%;
+    height: 130px;
+    position: relative;
+
+    background-image: url("../images/madeira.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-bottom: 3px solid #C9A227;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,.3);
+}
+
+.header-container{
+    width: 90%;
+    max-width: 1400px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+header::before{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,.20);
+}

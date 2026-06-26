@@ -1,0 +1,44 @@
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+    width: 100%;
+    height: 80px;
+
+    position: relative;
+    overflow: hidden;
+
+    background-image: url("../images/madeira.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-top: 2px solid #C9A227;
+
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.35);
+}
+
+footer::before{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.20);
+}
+
+.footer-container{
+    width: 90%;
+    max-width: 1400px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 1;
+}
