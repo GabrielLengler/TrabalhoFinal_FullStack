@@ -6,7 +6,11 @@
     <title>WMRPG</title>
     <link rel="icon" type="image/png" href="assets/images/wm-logo.png">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/variable.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
 

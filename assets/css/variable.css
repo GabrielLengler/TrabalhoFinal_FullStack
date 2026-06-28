@@ -1,0 +1,36 @@
+/* ========================================
+   PALETA DE CORES
+======================================== */
+
+:root{
+
+    /* Fundo do site */
+    --bg-main: #F5E9D0;
+    --bg-card: #EAD8B1;
+
+    /* Header e Footer */
+    --wood-light: #F2E9D8;
+    --wood-text: #F8F1E4;
+
+    /* Títulos */
+    --gold: #C9A227;
+    --gold-hover: #D4AF37;
+
+    /* Botões */
+    --wine: #8B1E24;
+    --wine-hover: #A62A33;
+
+    /* Texto */
+    --text-primary: #2F2F2F;
+    --text-secondary: #5C4B3B;
+
+    /* Bordas */
+    --border: #8C6A43;
+
+    /* Sombras */
+    --shadow: rgba(0,0,0,.35);
+
+    /* Fontes */
+    --font-title: "Cinzel", serif;
+    --font-text: "Lato", sans-serif;
+}
