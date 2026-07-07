@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
 
-
 /* ========================================
    RESET
 ======================================== */
@@ -11,44 +10,28 @@
     box-sizing: border-box;
 }
 
-html,
-body{
-    min-height: 100vh;
+/* ========================================
+   ESTRUTURA GERAL
+======================================== */
+
+html{
+    height: 100%;
 }
 
 body{
+    min-height: 100vh;
+
     display: flex;
     flex-direction: column;
 
     background: var(--bg-main);
-
     color: var(--text-primary);
 
     font-family: var(--font-text);
 }
 
 main{
-    flex: 1;
-}
-
-/* ===========================
-   ESTRUTURA DA PÁGINA
-=========================== */
-
-html,
-body{
-    height: 100%;
-}
-
-body{
-    display: flex;
-    flex-direction: column;
-
-    background-color: #F5E9D0;
-}
-
-main{
-    flex: 1;
+    flex: 1 0 auto;
 }
 
 /* ========================================
@@ -84,6 +67,5 @@ button{
 
 a{
     font-family: var(--font-text);
-
     text-decoration: none;
 }

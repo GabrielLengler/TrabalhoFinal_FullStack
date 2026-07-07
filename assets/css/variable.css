@@ -12,9 +12,13 @@
     --wood-light: #F2E9D8;
     --wood-text: #F8F1E4;
 
-    /* Títulos */
+    /* Títulos Header/Footer */
     --gold: #C9A227;
     --gold-hover: #D4AF37;
+
+    /* Títulos do conteúdo */
+    --gold-dark: #8B6A1C;
+    --gold-dark-hover: #A37A20;
 
     /* Botões */
     --wine: #8B1E24;

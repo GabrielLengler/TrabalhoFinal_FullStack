@@ -19,33 +19,57 @@
 
 <main>
 
-<section class="home-section hero">
+    <!-- ===========================
+         HERO
+    ============================ -->
 
-    <div class="home-container">
+    <section class="home-section hero">
 
-        <h2 class="hero-title">
-            Bem-vindo(a) ao WorldMarketRPG
-        </h2>
+        <div class="home-container">
 
-        <p class="hero-description">
-            Construa mercados, controle preços e administre a economia do seu mundo em um único lugar.
-        </p>
+            <h2 class="hero-title">
+                Bem-vindo(a) ao WorldMarketRPG
+            </h2>
 
-        <div class="hero-buttons">
+            <p class="hero-description">
+                Construa mercados, controle preços e administre a economia do seu mundo em um único lugar.
+            </p>
 
-            <a href="#" class="btn-primary">
-                Criar Mundo
-            </a>
+            <div class="hero-buttons">
 
-            <a href="#" class="btn-secondary">
-                Explorar Mundos
-            </a>
+                <a href="#" class="btn-primary">
+                    Criar Mundo
+                </a>
+
+                <a href="#" class="btn-secondary">
+                    Explorar Mundos
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <div class="section-divider"></div>
+
+    <!-- ===========================
+         MUNDOS EM DESTAQUE
+    ============================ -->
+
+    <section class="home-section featured-worlds">
+
+        <div class="home-container">
+
+            <h2 class="section-title">
+                Mundos em Destaque
+            </h2>
+
+        </div>
+
+    </section>
+
+    <div class="section-divider"></div>
 
 </main>
 
