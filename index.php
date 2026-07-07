@@ -19,7 +19,33 @@
 
 <main>
 
+<section class="home-section hero">
 
+    <div class="home-container">
+
+        <h2 class="hero-title">
+            Bem-vindo(a) ao WorldMarketRPG
+        </h2>
+
+        <p class="hero-description">
+            Construa mercados, controle preços e administre a economia do seu mundo em um único lugar.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#" class="btn-primary">
+                Criar Mundo
+            </a>
+
+            <a href="#" class="btn-secondary">
+                Explorar Mundos
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 </main>
 

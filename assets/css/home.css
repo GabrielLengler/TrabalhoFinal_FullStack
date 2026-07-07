@@ -1,1 +1,126 @@
 /* Página Inicial */
+
+/* ===========================
+   SEÇÕES
+=========================== */
+
+.home-section{
+    width: 100%;
+    padding: 80px 0;
+}
+
+.home-container{
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title{
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    min-height: 380px;
+}
+
+.hero-title{
+
+    font-family: var(--font-title);
+
+    color: var(--gold);
+
+    font-size: 3rem;
+
+    margin-bottom: 18px;
+}
+
+.hero-description{
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    font-size: 1.35rem;
+
+    color: var(--text-secondary);
+
+    line-height: 1.6;
+}
+
+.hero-buttons{
+
+    margin-top: 45px;
+
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn-primary{
+
+    display: inline-block;
+
+    padding: 16px 34px;
+
+    background: var(--wine);
+
+    color: var(--wood-text);
+
+    border-radius: 10px;
+
+    font-size: 1.1rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: .25s;
+}
+
+.btn-primary:hover{
+
+    background: var(--wine-hover);
+
+    transform: translateY(-3px);
+}
+
+.btn-secondary{
+
+    display: inline-block;
+
+    padding: 16px 34px;
+
+    border: 2px solid var(--gold);
+
+    color: var(--gold);
+
+    border-radius: 10px;
+
+    font-size: 1.1rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: .25s;
+}
+
+.btn-secondary:hover{
+
+    background: var(--gold);
+
+    color: #fff;
+
+    transform: translateY(-3px);
+}
