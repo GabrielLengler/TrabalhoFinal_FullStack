@@ -56,8 +56,8 @@ header::before{
 }
 
 .logo{
-    width: 125px;
-    height: 125px;
+    width: 100px;
+    height: 100px;
 
     object-fit: contain;
 
@@ -66,8 +66,9 @@ header::before{
 
 .logo-area h1{
     font-family: var(--font-title);
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
 
     color: var(--gold);
 
@@ -76,20 +77,86 @@ header::before{
     text-shadow: 2px 2px 6px rgba(0,0,0,.45);
 }
 
+.logo-link {
+    text-decoration: none;
+    color: inherit; 
+    display: inline-block; 
+}
+
+.logo-link:hover {
+    text-decoration: none; 
+    cursor: pointer; 
+}
+
 /* ===========================
-   ÁREAS FUTURAS
+   NAVBAR
 =========================== */
 
 .navbar{
-    flex: 1;
-
     display: flex;
+    align-items: center;
     justify-content: center;
+
+    gap: 55px;
+
+    flex: 1;
 }
 
+.navbar a{
+
+    color: var(--wood-text);
+
+    text-decoration: none;
+
+    font-family: var(--font-text);
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    transition: .25s;
+}
+
+.navbar a:hover{
+
+    color: var(--gold);
+
+}
+
+/* ===========================
+   BOTÃO LOGIN
+=========================== */
+
 .user-area{
-    min-width: 180px;
+
+    min-width: 240px;
 
     display: flex;
     justify-content: flex-end;
+}
+
+.login-btn{
+
+    background: var(--wine);
+
+    color: var(--wood-text);
+
+    padding: 14px 28px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-family: var(--font-text);
+    font-size: 1.1rem;
+    font-weight: 700;
+
+    transition: .25s;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,.30);
+}
+
+.login-btn:hover{
+
+    background: var(--wine-hover);
+
+    transform: translateY(-2px);
 }
