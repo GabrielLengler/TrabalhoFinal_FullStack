@@ -14,6 +14,7 @@ require_once '../config.php';
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/global.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/header.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/login.css">
 </head>
 <body>
 
@@ -21,8 +22,120 @@ require_once '../config.php';
 
 <main>
 
+    <section class="login-section">
 
-    
+        <div class="login-card">
+
+            <h2 class="login-title">
+                Criar uma Conta
+            </h2>
+
+            <p class="login-subtitle">
+                Comece agora a criar e administrar seus mundos de RPG.
+            </p>
+
+            <form action="" method="POST">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="usuario">
+                        Nome de Usuário
+                    </label>
+
+                    <input
+                        type="text"
+                        id="usuario"
+                        name="usuario"
+                        placeholder="Escolha um nome de usuário"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="confirmarSenha">
+                        Confirmar Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmarSenha"
+                        name="confirmarSenha"
+                        placeholder="Digite novamente sua senha"
+                        required
+                    >
+
+                </div>
+
+                <div class="remember-area">
+
+                    <input
+                        type="checkbox"
+                        id="notificacoes"
+                        name="notificacoes"
+                    >
+
+                    <label for="notificacoes">
+                        Desejo receber novidades e atualizações por e-mail.
+                    </label>
+
+                </div>
+
+                <button type="submit" class="login-button">
+
+                    Criar Conta
+
+                </button>
+
+            </form>
+
+            <p class="register-text">
+
+                Já possui uma conta?
+
+                <a href="<?= BASE_URL ?>pages/login.php">
+                    Entrar
+                </a>
+
+            </p>
+
+        </div>
+
+    </section>
+
 </main>
 
 
