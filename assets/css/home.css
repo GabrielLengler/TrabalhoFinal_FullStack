@@ -199,3 +199,93 @@
 
     margin-bottom: 60px;
 }
+
+/* ===========================
+   ÚLTIMAS ATUALIZAÇÕES
+=========================== */
+
+.latest-updates{
+
+    min-height: 420px;
+
+    display: flex;
+    align-items: flex-start;
+}
+
+.latest-updates .section-title{
+
+    margin-bottom: 60px;
+}
+
+/* ===========================
+   APOIE O PROJETO
+=========================== */
+
+.support-project{
+
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+}
+
+.support-project .home-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.support-text{
+
+    max-width: 850px;
+
+    margin-top: 20px;
+
+    font-size: 1.2rem;
+
+    color: var(--text-secondary);
+
+    line-height: 1.8;
+}
+
+.pix-area{
+
+    margin-top: 45px;
+}
+
+.pix-qrcode{
+
+    width: 260px;
+    height: auto;
+
+    border-radius: 14px;
+
+    border: 3px solid var(--gold);
+
+    background: white;
+
+    padding: 12px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+
+    transition: .25s;
+}
+
+.pix-area{
+
+    margin-top: 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.pix-qrcode:hover{
+
+    transform: scale(1.03);
+}
