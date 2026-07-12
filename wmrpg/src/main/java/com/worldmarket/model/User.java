@@ -1,23 +1,28 @@
-package com.worldmarket.repository;
+package com.worldmarket.model;
 
 import java.time.LocalDateTime;
 
-import org.springframework.data.annotation.Id;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "usuarios")
-public class Usuarios {
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", length = 128)
-	private int id;
+	@Column(name = "id")
+	private Long id;
 
 	@Column(name = "username", nullable = false, length = 30, unique = true)
 	private String username;
@@ -29,19 +34,29 @@ public class Usuarios {
 	private String password;
 	
 	@Column(name = "created_at", nullable = false, updatable = false)
-	private LocalDateTime createdAt = LocalDateTime.now();
+	private LocalDateTime createdAt;
 	
 	@Column(name = "notification", nullable = false)
 	private boolean notification = false;
 	
-	@Column(name = "foto_perfil", nullable = false, length = 120)
-	private String fotoPerfil = null;
+	@Column(name = "profile_picture", length = 120)
+	private String profilePicture = null;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "role", nullable = false)
 	private Role role;
 	
-	enum Role {
+	public enum Role {
 		ADMINISTRATOR, USER
+	}
+
+	@PrePersist
+	public void prePersist() {
+		if (createdAt == null) {
+			createdAt = LocalDateTime.now();
+		}
+		if (role == null) {
+			role = Role.USER;
+		}
 	}
 }

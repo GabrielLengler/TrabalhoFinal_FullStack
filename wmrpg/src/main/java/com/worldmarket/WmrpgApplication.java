@@ -1,4 +1,4 @@
-package com.worldmarket.wmrpg;
+package com.worldmarket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
