@@ -36,8 +36,8 @@ public class User {
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
 	
-	@Column(name = "notification", nullable = false)
-	private boolean notification = false;
+	@Column(name = "notification")
+	private boolean notification;
 	
 	@Column(name = "profile_picture", length = 120)
 	private String profilePicture = null;
