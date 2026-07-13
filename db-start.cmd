@@ -1,2 +1,2 @@
-cd .\wrmpg
+cd .\wmrpg
 call .\gradlew.bat bootRun
