@@ -8,6 +8,7 @@ require_once '../config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMRPG</title>
+
     <link rel="icon" type="image/png" href="<?= BASE_URL ?>assets/images/wm-logo.png">
 
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/variable.css">
@@ -15,6 +16,9 @@ require_once '../config.php';
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/header.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/login.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
 </head>
 <body>
 
@@ -40,6 +44,7 @@ require_once '../config.php';
 
                     <label for="email">
                         E-mail
+                        <span class="required">*</span>
                     </label>
 
                     <input
@@ -56,6 +61,7 @@ require_once '../config.php';
 
                     <label for="usuario">
                         Nome de Usuário
+                        <span class="required">*</span>
                     </label>
 
                     <input
@@ -70,33 +76,51 @@ require_once '../config.php';
 
                 <div class="form-group">
 
-                    <label for="senha">
+                    <label for="password">
                         Senha
+                        <span class="required">*</span>
                     </label>
 
-                    <input
-                        type="password"
-                        id="senha"
-                        name="senha"
-                        placeholder="Digite sua senha"
-                        required
-                    >
+                    <div class="password-group">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="senha"
+                            placeholder="Digite sua senha"
+                            required
+                        >
+
+                        <span class="toggle-password" data-target="password">
+                            <i class="fa-regular fa-eye"></i>
+                        </span>
+
+                    </div>
 
                 </div>
 
                 <div class="form-group">
 
-                    <label for="confirmarSenha">
+                    <label for="confirmPassword">
                         Confirmar Senha
+                        <span class="required">*</span>
                     </label>
 
-                    <input
-                        type="password"
-                        id="confirmarSenha"
-                        name="confirmarSenha"
-                        placeholder="Digite novamente sua senha"
-                        required
-                    >
+                    <div class="password-group">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmarSenha"
+                            placeholder="Digite novamente sua senha"
+                            required
+                        >
+
+                        <span class="toggle-password" data-target="confirmPassword">
+                            <i class="fa-regular fa-eye"></i>
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -138,8 +162,17 @@ require_once '../config.php';
 
 </main>
 
+<div id="toast"></div>
 
 <?php include '../includes/footer.php'; ?>
-    
+
+<script>
+const BASE_URL = "<?= BASE_URL ?>";
+</script>
+
+<script src="<?= BASE_URL ?>assets/js/utils.js"></script>
+
+<script src="<?= BASE_URL ?>assets/js/cadastro.js"></script>
+
 </body>
 </html>
