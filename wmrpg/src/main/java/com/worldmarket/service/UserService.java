@@ -6,6 +6,8 @@ import com.worldmarket.model.LoginRequest;
 import com.worldmarket.model.LoginResponse;
 import com.worldmarket.model.RegisterRequest;
 import com.worldmarket.model.RegisterResponse;
+import com.worldmarket.model.UpdateUserRequest;
+import com.worldmarket.model.UserMeResponse;
 
 @Service
 public class UserService {
@@ -22,5 +24,13 @@ public class UserService {
 	
 	public RegisterResponse register(RegisterRequest request) {
 		return authService.register(request);
+	}
+
+	public UserMeResponse getCurrentUser(Long userId) {
+		return authService.getCurrentUser(userId);
+	}
+
+	public UserMeResponse updateCurrentUser(Long userId, UpdateUserRequest request) {
+		return authService.updateCurrentUser(userId, request);
 	}
 }

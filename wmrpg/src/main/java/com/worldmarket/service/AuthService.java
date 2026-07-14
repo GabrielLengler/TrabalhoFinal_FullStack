@@ -11,7 +11,9 @@ import com.worldmarket.model.LoginRequest;
 import com.worldmarket.model.LoginResponse;
 import com.worldmarket.model.RegisterRequest;
 import com.worldmarket.model.RegisterResponse;
+import com.worldmarket.model.UpdateUserRequest;
 import com.worldmarket.model.User;
+import com.worldmarket.model.UserMeResponse;
 import com.worldmarket.repository.UserRepository;
 
 @Service
@@ -66,5 +68,56 @@ public class AuthService {
 		}
 
 		return LoginResponse.fromUser(user);
+	}
+
+	@Transactional(readOnly = true)
+	public UserMeResponse getCurrentUser(Long userId) {
+		User user = userRepository.findById(userId)
+			.orElseThrow(() -> new InvalidUserException("Authenticated user was not found"));
+		return UserMeResponse.fromUser(user);
+	}
+
+	@Transactional
+	public UserMeResponse updateCurrentUser(Long userId, UpdateUserRequest request) {
+		User user = userRepository.findById(userId)
+			.orElseThrow(() -> new InvalidUserException("Authenticated user was not found"));
+
+		if (request.getUsername() != null) {
+			String username = request.getUsername().trim();
+			if (username.isEmpty()) {
+				throw new InvalidUserException("Username cannot be empty");
+			}
+			if (!username.equals(user.getUsername()) && userRepository.existsByUsername(username)) {
+				throw new InvalidUserException("Username already exists");
+			}
+			user.setUsername(username);
+		}
+
+		if (request.getEmail() != null) {
+			String email = request.getEmail().trim().toLowerCase(Locale.ROOT);
+			if (email.isEmpty()) {
+				throw new InvalidUserException("Email cannot be empty");
+			}
+			if (!email.equals(user.getEmail()) && userRepository.existsByEmail(email)) {
+				throw new InvalidUserException("Email already exists");
+			}
+			user.setEmail(email);
+		}
+
+		if (request.getPassword() != null) {
+			user.setPassword(passwordEncoder.encode(request.getPassword()));
+		}
+
+		if (request.getNotification() != null) {
+			user.setNotification(request.getNotification());
+		}
+
+		if (request.getProfilePicture() != null) {
+			String profilePicture = request.getProfilePicture().trim();
+			user.setProfilePicture(profilePicture.isEmpty() ? null : profilePicture);
+		}
+
+		User savedUser = userRepository.save(user);
+		return UserMeResponse.fromUser(savedUser);
 	}
 }
