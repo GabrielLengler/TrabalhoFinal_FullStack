@@ -32,6 +32,9 @@ body{
 
 main{
     flex: 1 0 auto;
+
+    position: relative;
+    z-index: 1;
 }
 
 /* ========================================

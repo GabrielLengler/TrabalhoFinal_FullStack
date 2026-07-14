@@ -3,6 +3,7 @@
 =========================== */
 
 header{
+
     flex: 0 0 130px;
 
     width: 100%;
@@ -18,7 +19,9 @@ header{
 
     box-shadow: 0 3px 8px rgba(0,0,0,.3);
 
-    overflow: hidden;
+    overflow: visible;
+
+    z-index: 1000;
 }
 
 header::before{
@@ -170,13 +173,14 @@ header::before{
 .profile-menu{
 
     position: relative;
+    z-index: 2000;
 
 }
 
 .profile-photo{
 
-    width:48px;
-    height:48px;
+    width:60px;
+    height:60px;
 
     border-radius:50%;
 
@@ -186,42 +190,143 @@ header::before{
 
     border:2px solid var(--gold);
 
-    transition:.2s;
+    transition:
+        transform .15s ease,
+        box-shadow .2s ease;
 
 }
 
 .profile-photo:hover{
 
-    transform:scale(1.05);
+    transform: scale(1.08);
+
+    box-shadow: 0 0 12px rgba(212, 175, 55, .45);
+
+}
+
+.profile-photo:active{
+
+    transform: scale(.96);
 
 }
 
 .profile-dropdown{
 
-    position:absolute;
+    position: absolute;
 
-    top:60px;
-    right:0;
+    top: 76px;
+    right: 0;
 
-    width:220px;
-    min-height:120px;
+    width: 260px;
+    min-height: 140px;
 
-    background:var(--dark-brown);
+    background: linear-gradient(
+        to bottom,
+        #f8f2e7,
+        #efe3c4
+    );
 
-    border:2px solid var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
 
-    border-radius:10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
 
-    box-shadow:0 8px 20px rgba(0,0,0,.35);
+    padding: 12px;
 
-    display:none;
+    z-index: 3000;
 
-    z-index:1000;
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s;
 
 }
 
 .profile-dropdown.active{
 
-    display:block;
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+.profile-dropdown::before{
+
+    content: "";
+
+    position: absolute;
+
+    top: -9px;
+    right: 22px;
+
+    width: 16px;
+    height: 16px;
+
+    background: #F7F0DE;
+
+    border-left: 2px solid var(--gold);
+    border-top: 2px solid var(--gold);
+
+    transform: rotate(45deg);
+
+}
+
+/* ===========================
+   BOTÃO SAIR
+=========================== */
+
+.logout-btn{
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 8px;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: var(--dark-brown);
+
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.logout-btn:hover{
+
+    color: var(--wine);
+
+    transform: translateX(4px);
+
+}
+
+.logout-btn i{
+
+    font-size: 1.2rem;
+
+    color: var(--dark-brown);
+
+    transition: .2s;
+
+}
+
+.logout-btn:hover i{
+
+    color: var(--wine);
 
 }
