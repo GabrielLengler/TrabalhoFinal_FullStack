@@ -8,7 +8,7 @@ if (!isset($usuarioLogado)) {
 
 <header>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <div class="header-container">
 
@@ -40,35 +40,35 @@ if (!isset($usuarioLogado)) {
 
             <?php if($usuarioLogado): ?>
 
-            <div class="profile-menu">
+                <div class="profile-menu">
 
-                <img
-                    src="<?= BASE_URL ?>assets/images/default-profile.png"
-                    class="profile-photo"
-                    id="profileButton"
-                    alt="Foto de Perfil"
-                >
-
-                <div class="profile-dropdown" id="profileDropdown">
-
-                    <button
-                        id="logoutButton"
-                        class="logout-btn"
-                        type="button"
+                    <img
+                        src="<?= BASE_URL ?>assets/images/default-profile.png"
+                        class="profile-photo"
+                        id="profileButton"
+                        alt="Foto de Perfil"
                     >
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                        Sair
-                    </button>
+
+                    <div class="profile-dropdown" id="profileDropdown">
+
+                        <button
+                            id="logoutButton"
+                            class="logout-btn"
+                            type="button"
+                        >
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            Sair
+                        </button>
+
+                    </div>
 
                 </div>
 
-            </div>
-
             <?php else: ?>
 
-            <a href="<?= BASE_URL ?>pages/login.php" class="login-btn">
-                Entrar / Cadastrar
-            </a>
+                <a href="<?= BASE_URL ?>pages/login.php" class="login-btn">
+                    Entrar / Cadastrar
+                </a>
 
             <?php endif; ?>
 
@@ -78,12 +78,8 @@ if (!isset($usuarioLogado)) {
 
 </header>
 
-<?php if($usuarioLogado): ?>
-
 <script>
 const BASE_URL = "<?= BASE_URL ?>";
 </script>
 
 <script src="<?= BASE_URL ?>assets/js/header.js"></script>
-
-<?php endif; ?>

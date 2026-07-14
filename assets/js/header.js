@@ -1,5 +1,6 @@
 const profileButton = document.getElementById("profileButton");
 const profileDropdown = document.getElementById("profileDropdown");
+const logoutButton = document.getElementById("logoutButton");
 
 if(profileButton){
 
@@ -14,6 +15,31 @@ if(profileButton){
     document.addEventListener("click",()=>{
 
         profileDropdown.classList.remove("active");
+
+    });
+
+}
+
+if(logoutButton){
+
+    logoutButton.addEventListener("click", async ()=>{
+
+        try{
+
+            await fetch("http://localhost:8080/auth/logout",{
+
+                method:"POST",
+                credentials:"include"
+
+            });
+
+        }catch(error){
+
+            console.error(error);
+
+        }
+
+        window.location.href = BASE_URL + "index.php";
 
     });
 
