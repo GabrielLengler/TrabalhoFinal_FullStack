@@ -122,6 +122,14 @@ require_once '../config.php';
 
 <?php include '../includes/footer.php'; ?>
 
+<script>
+const BASE_URL = "<?= BASE_URL ?>";
+</script>
+
+<script src="<?= BASE_URL ?>assets/js/header.js"></script>
+
+<script src="<?= BASE_URL ?>assets/js/utils.js"></script>
+
 <script src="<?= BASE_URL ?>assets/js/login.js"></script>
 
 </body>
