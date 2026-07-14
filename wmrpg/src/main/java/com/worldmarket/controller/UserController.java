@@ -8,19 +8,23 @@ import com.worldmarket.service.UserService;
 
 import jakarta.validation.Valid;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.worldmarket.service.JwtService;
 
 @RestController
 @RequestMapping("/auth")
 public class UserController {
 	
 	private final UserService userService;
+	private final JwtService jwtService;
 	
-	public UserController(UserService userService) {
+	public UserController(UserService userService, JwtService jwtService) {
 		this.userService = userService;
+		this.jwtService = jwtService;
 	}
 		
 	@PostMapping("/register")
@@ -32,6 +36,10 @@ public class UserController {
 	@PostMapping("/login")
 	public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
 		LoginResponse response = userService.login(loginRequest);
-		return ResponseEntity.ok(response);
+		String token = jwtService.generateToken(response.getId(), response.getUsername(), response.getRole());
+		response.setToken(token);
+		return ResponseEntity.ok()
+			.header(HttpHeaders.SET_COOKIE, jwtService.createAuthCookie(token).toString())
+			.body(response);
 	}
 }

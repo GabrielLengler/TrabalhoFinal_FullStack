@@ -10,6 +10,7 @@ public class LoginResponse {
 	private String username;
 	private String email;
 	private User.Role role;
+	private String token;
 
 	public static LoginResponse fromUser(User user) {
 		LoginResponse response = new LoginResponse();
