@@ -1,7 +1,5 @@
 <?php
 require_once "config.php";
-
-$success = $_GET["success"] ?? "";
 ?>
 
 <!DOCTYPE html>
@@ -134,28 +132,6 @@ $success = $_GET["success"] ?? "";
 
 
 <?php include 'includes/footer.php'; ?>
-
-<script>
-const BASE_URL = "<?= BASE_URL ?>";
-</script>
-
-<script src="<?= BASE_URL ?>assets/js/utils.js"></script>
-
-<?php if($success === "register"): ?>
-
-<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    showToast("Conta criada com sucesso!");
-
-    window.history.replaceState({}, document.title, BASE_URL + "index.php");
-
-});
-
-</script>
-
-<?php endif; ?>
 
 </body>
 </html>
