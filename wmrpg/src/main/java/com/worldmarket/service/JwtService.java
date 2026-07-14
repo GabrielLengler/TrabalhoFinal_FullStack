@@ -101,4 +101,14 @@ public class JwtService {
 	private SecretKey signingKey() {
 		return Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
 	}
+	
+	public ResponseCookie clearAuthCookie() {
+		return ResponseCookie.from(cookieName, "")
+			.httpOnly(true)
+			.secure(cookieSecure)
+			.path("/")
+			.sameSite("Lax")
+			.maxAge(0)
+			.build();
+	}
 }
