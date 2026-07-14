@@ -42,4 +42,11 @@ public class UserController {
 			.header(HttpHeaders.SET_COOKIE, jwtService.createAuthCookie(token).toString())
 			.body(response);
 	}
+	
+	@PostMapping("/logout")
+	public ResponseEntity<Void> logout() {
+		return ResponseEntity.ok()
+			.header(HttpHeaders.SET_COOKIE, jwtService.clearAuthCookie().toString())
+			.build();
+	}
 }
