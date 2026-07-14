@@ -31,6 +31,8 @@ require_once '../config.php';
 </main>
     
 <?php include '../includes/footer.php'; ?>
+
+<script src="<?= BASE_URL ?>assets/js/header.js"></script>
     
 </body>
 </html>

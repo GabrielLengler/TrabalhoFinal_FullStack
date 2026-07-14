@@ -162,3 +162,66 @@ header::before{
 
     transform: translateY(-2px);
 }
+
+/* ===========================
+   MENU DO PERFIL
+=========================== */
+
+.profile-menu{
+
+    position: relative;
+
+}
+
+.profile-photo{
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    object-fit:cover;
+
+    border:2px solid var(--gold);
+
+    transition:.2s;
+
+}
+
+.profile-photo:hover{
+
+    transform:scale(1.05);
+
+}
+
+.profile-dropdown{
+
+    position:absolute;
+
+    top:60px;
+    right:0;
+
+    width:220px;
+    min-height:120px;
+
+    background:var(--dark-brown);
+
+    border:2px solid var(--gold);
+
+    border-radius:10px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+
+    display:none;
+
+    z-index:1000;
+
+}
+
+.profile-dropdown.active{
+
+    display:block;
+
+}
