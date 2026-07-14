@@ -158,7 +158,7 @@ form.addEventListener("submit", async (e)=>{
 
         }
 
-        window.location.href = BASE_URL + "index.php?success=register";
+        window.location.href = BASE_URL + "index.php";
 
     }catch(error){
 
