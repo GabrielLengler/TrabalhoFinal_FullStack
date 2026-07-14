@@ -126,8 +126,6 @@ require_once '../config.php';
 const BASE_URL = "<?= BASE_URL ?>";
 </script>
 
-<script src="<?= BASE_URL ?>assets/js/header.js"></script>
-
 <script src="<?= BASE_URL ?>assets/js/utils.js"></script>
 
 <script src="<?= BASE_URL ?>assets/js/login.js"></script>
