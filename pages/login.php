@@ -15,6 +15,9 @@ require_once '../config.php';
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/header.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/login.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 <body>
 
@@ -47,22 +50,35 @@ require_once '../config.php';
                         id="usuario"
                         name="usuario"
                         placeholder="Digite seu e-mail ou usuário"
+                        required
                     >
 
                 </div>
 
                 <div class="form-group">
 
-                    <label for="senha">
+                    <label for="password">
                         Senha
                     </label>
 
-                    <input
-                        type="password"
-                        id="senha"
-                        name="senha"
-                        placeholder="Digite sua senha"
-                    >
+                    <div class="password-group">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="senha"
+                            placeholder="Digite sua senha"
+                            required
+                        >
+
+                        <span
+                            class="toggle-password"
+                            data-target="password"
+                        >
+                            <i class="fa-regular fa-eye"></i>
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -105,6 +121,8 @@ require_once '../config.php';
 </main>
 
 <?php include '../includes/footer.php'; ?>
-    
+
+<script src="<?= BASE_URL ?>assets/js/login.js"></script>
+
 </body>
 </html>

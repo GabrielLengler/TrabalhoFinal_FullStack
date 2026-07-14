@@ -30,7 +30,7 @@ public class AuthService {
 		String username = request.getUsername().trim();
 		String email = request.getEmail().trim().toLowerCase(Locale.ROOT);
 		String rawPassword = request.getPassword();
-		boolean notification = request.isNotification();
+		boolean notification = request.getNotification();
 
 		if (userRepository.existsByUsername(username)) {
 			throw new InvalidUserException("Username already exists");
