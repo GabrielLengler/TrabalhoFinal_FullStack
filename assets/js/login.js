@@ -43,6 +43,7 @@ form.addEventListener("submit", async (e)=>{
 
     const usuario = document.getElementById("usuario").value.trim();
     const senha = document.getElementById("password").value;
+    const remember = document.getElementById("remember").checked;
 
     if(usuario === "" || senha === ""){
 
@@ -67,7 +68,8 @@ form.addEventListener("submit", async (e)=>{
             body: JSON.stringify({
 
                 username: usuario,
-                password: senha
+                password: senha,
+                remember: remember
 
             })
 
