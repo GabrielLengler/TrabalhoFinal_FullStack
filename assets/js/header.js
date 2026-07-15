@@ -26,7 +26,7 @@ if(logoutButton){
 
         try{
 
-            await fetch("http://localhost:8080/user/logout",{
+            await fetch("http://localhost:8080/auth/logout",{
 
                 method:"POST",
                 credentials:"include"

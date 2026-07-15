@@ -89,13 +89,21 @@ public class JwtService {
 	}
 
 	public ResponseCookie createAuthCookie(String token) {
-		return ResponseCookie.from(cookieName, token)
+		return createAuthCookie(token, true);
+	}
+
+	public ResponseCookie createAuthCookie(String token, boolean rememberMe) {
+		ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from(cookieName, token)
 			.httpOnly(true)
 			.secure(cookieSecure)
 			.path("/")
-			.sameSite("Lax")
-			.maxAge(Duration.ofSeconds(expirationSeconds))
-			.build();
+			.sameSite("Lax");
+
+		if (rememberMe) {
+			builder.maxAge(Duration.ofSeconds(expirationSeconds));
+		}
+
+		return builder.build();
 	}
 
 	private SecretKey signingKey() {
