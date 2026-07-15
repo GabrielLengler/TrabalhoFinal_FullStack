@@ -39,7 +39,7 @@ public class UserController {
 		String token = jwtService.generateToken(response.getId(), response.getUsername(), response.getRole());
 		response.setToken(token);
 		return ResponseEntity.ok()
-			.header(HttpHeaders.SET_COOKIE, jwtService.createAuthCookie(token).toString())
+			.header(HttpHeaders.SET_COOKIE, jwtService.createAuthCookie(token, loginRequest.isRemember()).toString())
 			.body(response);
 	}
 	
