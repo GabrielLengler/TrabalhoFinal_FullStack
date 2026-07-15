@@ -33,6 +33,7 @@ if (!isset($usuarioLogado)) {
             <a href="<?= BASE_URL ?>index.php">Início</a>
             <a href="<?= BASE_URL ?>pages/mundos.php">Mundos</a>
             <a href="<?= BASE_URL ?>pages/criacao.php">Criação</a>
+            <a href="<?= BASE_URL ?>pages/sobre.php">Sobre</a>
 
         </nav>
 
@@ -52,8 +53,35 @@ if (!isset($usuarioLogado)) {
                     <div class="profile-dropdown" id="profileDropdown">
 
                         <button
+                            class="dropdown-item"
+                            id="settingsButton"
+                            type="button"
+                        >
+                            <i class="fa-solid fa-gear"></i>
+                            Configurações
+                        </button>
+
+                        <a
+                            href="<?= BASE_URL ?>pages/meus-mundos.php"
+                            class="dropdown-item"
+                        >
+                            <i class="fa-solid fa-earth-americas"></i>
+                            Meus Mundos
+                        </a>
+
+                        <a
+                            href="<?= BASE_URL ?>pages/amigos.php"
+                            class="dropdown-item"
+                        >
+                            <i class="fa-solid fa-user-group"></i>
+                            Amigos
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <button
                             id="logoutButton"
-                            class="logout-btn"
+                            class="dropdown-item logout-btn"
                             type="button"
                         >
                             <i class="fa-solid fa-right-from-bracket"></i>
@@ -72,11 +100,46 @@ if (!isset($usuarioLogado)) {
 
             <?php endif; ?>
 
+            <button
+                class="language-btn"
+                id="languageButton"
+                type="button"
+                title="Idioma"
+            >
+                <i class="fa-solid fa-earth-americas"></i>
+            </button>
+
         </div>
 
     </div>
 
 </header>
+
+<!-- ===========================
+     MODAL DE CONFIGURAÇÕES
+=========================== -->
+
+<div class="settings-overlay" id="settingsOverlay">
+
+    <div class="settings-modal">
+
+        <button
+            class="settings-close"
+            id="closeSettings"
+            type="button"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="settings-content">
+
+            <!-- Em breve -->
+
+        </div>
+
+    </div>
+
+</div>
 
 <script>
 const BASE_URL = "<?= BASE_URL ?>";
