@@ -1,10 +1,17 @@
 package com.worldmarket.service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Locale;
+import java.util.Set;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.worldmarket.exception.InvalidUserException;
 import com.worldmarket.model.LoginRequest;
@@ -119,5 +126,45 @@ public class AuthService {
 
 		User savedUser = userRepository.save(user);
 		return UserMeResponse.fromUser(savedUser);
+	}
+
+	@Transactional
+	public UserMeResponse updateProfilePicture(Long userId, MultipartFile file) {
+		if (file.isEmpty()) {
+			throw new InvalidUserException("Profile picture is required");
+		}
+
+		String contentType = file.getContentType();
+		if (!Set.of("image/jpeg", "image/png", "image/webp").contains(contentType)) {
+			throw new InvalidUserException("Profile picture must be a PNG, JPEG, or WebP image");
+		}
+		if (file.getSize() > 5 * 1024 * 1024) {
+			throw new InvalidUserException("Profile picture must be 5 MB or smaller");
+		}
+
+		String extension = switch (contentType) {
+			case "image/png" -> ".png";
+			case "image/webp" -> ".webp";
+			default -> ".jpg";
+		};
+		String filename = UUID.randomUUID() + extension;
+		Path uploadDirectory = Path.of("uploads", "profile-pictures").toAbsolutePath();
+
+		try {
+			Files.createDirectories(uploadDirectory);
+			file.transferTo(uploadDirectory.resolve(filename));
+		} catch (IOException ex) {
+			throw new IllegalStateException("Could not store profile picture", ex);
+		}
+
+		User user = userRepository.findById(userId)
+			.orElseThrow(() -> new InvalidUserException("Authenticated user was not found"));
+		String imageUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
+			.path("/uploads/profile-pictures/")
+			.path(filename)
+			.toUriString();
+		user.setProfilePicture(imageUrl);
+
+		return UserMeResponse.fromUser(userRepository.save(user));
 	}
 }

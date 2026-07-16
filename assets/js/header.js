@@ -109,14 +109,12 @@ if (changePhotoButton && photoInput) {
         if (!file) return;
 
         const formData = new FormData();
-        formData.append("file", file); // Garanta que o nome "file" é o mesmo do @RequestParam no Java
+        formData.append("file", file);
 
         try {
-            // AJUSTE AQUI: Altere a URL abaixo para a rota exata definida no seu Controller Java!
-            // Exemplo: "http://localhost:8080/usuarios/profile-picture" ou "http://localhost:8080/api/usuarios/profile-picture"
-            const response = await fetch("http://localhost:8080/usuarios/profile-picture", {
-                method: "POST", // Se o seu Java usar @PutMapping, altere aqui para "PUT"
-                credentials: "include", // Envia os cookies do JWT configurados nas suas properties
+            const response = await fetch("http://localhost:8080/user/me/profile-picture", {
+                method: "PUT",
+                credentials: "include",
                 body: formData
             });
 
@@ -127,11 +125,7 @@ if (changePhotoButton && photoInput) {
             const data = await response.json();
             console.log("Resposta do servidor:", data);
             
-            // Tenta obter a URL da foto de todas as formas possíveis que o Java costuma retornar
-            const novaUrlFoto = data.url || 
-                                data.profilePicture || 
-                                data.profile_picture || 
-                                (data.usuario && (data.usuario.profilePicture || data.usuario.profile_picture));
+            const novaUrlFoto = data.profilePicture;
 
             if (novaUrlFoto) {
                 if (settingsProfilePhoto) {
@@ -140,16 +134,14 @@ if (changePhotoButton && photoInput) {
                 if (profileButtonImg) {
                     profileButtonImg.src = novaUrlFoto;
                 }
-                alert("Foto de perfil atualizada com sucesso!");
+                showToast("Foto de perfil atualizada com sucesso!");
             } else {
-                // Se salvou com sucesso no banco, mas não retornou a URL de forma direta no JSON, 
-                // recarrega a página para o PHP renderizar o caminho atualizado do banco.
                 window.location.reload();
             }
 
         } catch (error) {
             console.error("Erro no upload:", error);
-            alert("Não foi possível atualizar sua foto de perfil. Verifique se o servidor Spring Boot está rodando na porta 8080 e se a rota está correta.");
+            showToast("Não foi possível atualizar sua foto de perfil.");
         } finally {
             photoInput.value = "";
         }
