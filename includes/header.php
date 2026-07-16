@@ -43,12 +43,12 @@ if (!isset($usuarioLogado)) {
 
                 <div class="profile-menu">
 
-                    <img
-                        src="<?= BASE_URL ?>assets/images/default-profile.png"
-                        class="profile-photo"
-                        id="profileButton"
-                        alt="Foto de Perfil"
-                    >
+                <img
+                    src="<?= !empty($usuario['profilePicture']) ? $usuario['profilePicture'] : BASE_URL . 'assets/images/default-profile.png' ?>"
+                    class="profile-photo"
+                    id="profileButton"
+                    alt="Foto de Perfil"
+                >
 
                     <div class="profile-dropdown" id="profileDropdown">
 
@@ -133,7 +133,93 @@ if (!isset($usuarioLogado)) {
 
         <div class="settings-content">
 
-            <!-- Em breve -->
+            <h2 class="settings-title">
+                Configurações
+            </h2>
+
+            <div class="settings-divider"></div>
+
+            <!-- ===========================
+                 CONTA
+            ============================ -->
+
+            <section class="settings-section">
+
+                <h3 class="settings-section-title">
+                    Conta
+                </h3>
+
+                <div class="account-container">
+
+                    <div class="account-photo">
+
+                        <p class="settings-label">
+                            Foto de Perfil
+                        </p>
+
+                        <img
+                            id="settingsProfilePhoto"
+                            class="settings-profile-photo"
+                            src="<?= !empty($usuario['profilePicture']) ? $usuario['profilePicture'] : BASE_URL . 'assets/images/default-profile.png' ?>"
+                            alt="Foto de Perfil"
+                        >
+
+                        <button
+                            type="button"
+                            id="changePhotoButton"
+                            class="change-photo-btn"
+                        >
+                            Alterar Foto
+                        </button>
+
+                        <input
+                            type="file"
+                            id="photoInput"
+                            accept="image/png,image/jpeg,image/jpg,image/webp"
+                            hidden
+                        >
+
+                    </div>
+
+                    <div class="account-fields">
+
+                        <div class="account-field">
+
+                            <p class="settings-label">
+                                Nome de usuário
+                            </p>
+
+                            <div
+                                class="account-value"
+                                id="settingsUsername"
+                            >
+                                <?= htmlspecialchars($usuario['username']) ?>
+                            </div>
+
+                        </div>
+
+                        <div class="account-field">
+
+                            <p class="settings-label">
+                                E-mail
+                            </p>
+
+                            <div
+                                class="account-value"
+                                id="settingsEmail"
+                            >
+                                <?= htmlspecialchars($usuario['email']) ?>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="settings-divider"></div>
+
+            </section>
 
         </div>
 

@@ -97,6 +97,8 @@ form.addEventListener("submit", async (e)=>{
 
             method:"POST",
 
+            credentials:"include",
+
             headers:{
                 "Content-Type":"application/json"
             },

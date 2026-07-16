@@ -1,6 +1,7 @@
 package com.worldmarket.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.worldmarket.model.LoginRequest;
 import com.worldmarket.model.LoginResponse;
@@ -32,5 +33,9 @@ public class UserService {
 
 	public UserMeResponse updateCurrentUser(Long userId, UpdateUserRequest request) {
 		return authService.updateCurrentUser(userId, request);
+	}
+
+	public UserMeResponse updateProfilePicture(Long userId, MultipartFile file) {
+		return authService.updateProfilePicture(userId, file);
 	}
 }
